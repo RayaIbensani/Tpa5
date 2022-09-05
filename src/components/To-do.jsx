@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import TodoForm from './To-do1';
-import { FaTrash } from "@react-icons/all-files/fa/FaTrash.esm";
-import { FaPencilAlt } from "@react-icons/all-files/fa/FaPencilAlt";
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
@@ -28,15 +26,9 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
         {todo.text}
       </div>
-      <div className='icons'>
-        <FaTrash
-          onClick={() => removeTodo(todo.id)}
-          className='delete'
-        />
-        <FaPencilAlt
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className='pencil'
-        />
+      <div className='btn'>
+        <button className="btn btn-warning" className="delete" onClick={() => removeTodo(todo.id)}>Delete</button>
+        <button className="btn btn-warning" className="change" onClick={() => setEdit({ id: todo.id, value: todo.text })}>Change</button>
       </div>
     </div>
   ));
